@@ -31,7 +31,7 @@ RUN mvn package -Pnative -DskipTests
 
 FROM debian:bookworm-slim
 
-LABEL io.github.ruitx."$ARTIFACT_ID".version="$VERSION"
+LABEL io.github.ruitx.$ARTIFACT_ID.version="$VERSION"
 
 WORKDIR /app
 

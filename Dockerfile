@@ -16,7 +16,7 @@ RUN mvn package -Pnative -DskipTests
 
 FROM debian:bookworm-slim
 
-LABEL io.github.ruitx."ipinfo".version="1.0.0-SNAPSHOT"
+LABEL io.github.ruitx.ipinfo.version="1.0.0-SNAPSHOT"
 
 WORKDIR /app
 
@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends     ca-certific
 # Copy the built native executable from the builder stage
 COPY --from=builder /app/target/native/ipinfo-1.0.0-SNAPSHOT /app/ipinfo
 COPY --from=builder /app/.env /app/.env
-COPY --from=builder /app/migrations /app/migrations
+#COPY --from=builder /app/migrations /app/migrations
 
 # Set executable permission
 RUN chmod +x /app/ipinfo
