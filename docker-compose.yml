@@ -1,0 +1,7 @@
+services:
+  server:
+    image: ipinfo:latest
+    container_name: server
+    ports:
+      - "15000:15000"
+    restart: unless-stopped
