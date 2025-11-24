@@ -43,7 +43,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Copy the built native executable from the builder stage
 COPY --from=builder /app/target/native/$BINARY_NAME /app/$ARTIFACT_ID
 COPY --from=builder /app/.env /app/.env
-COPY --from=builder /app/migrations /app/migrations
+#COPY --from=builder /app/migrations /app/migrations
 
 # Set executable permission
 RUN chmod +x /app/$ARTIFACT_ID
